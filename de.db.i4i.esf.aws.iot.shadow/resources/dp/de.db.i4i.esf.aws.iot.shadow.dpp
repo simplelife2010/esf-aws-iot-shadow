@@ -1,0 +1,34 @@
+#Deployment Plugin Project File
+#Sun Mar 19 17:50:02 CET 2017
+build.ant.name=<.>\\resources\\dp\\de.db.i4i.esf.aws.iot_build.xml
+build.dp.file=<.>\\resources\\dp\\de.db.i4i.esf.aws.iot.shadow.dp
+build.location=
+bundles.0.bundle_path=<.>\\.project
+bundles.0.customizer=false
+bundles.0.headers.count=0
+bundles.0.missing=false
+bundles.0.name=bundles/de.db.i4i.esf.aws.iot.shadow.jar
+bundles.0.symbolic_name=de.db.i4i.esf.aws.iot.shadow;singleton\:\=true
+bundles.0.version=0.0.1.qualifier
+bundles.1.bundle_path=<.>\\plugins\\aws-iot-device-sdk-java-osgi_1.1.0.jar
+bundles.1.customizer=false
+bundles.1.headers.count=0
+bundles.1.missing=false
+bundles.1.name=bundles/aws-iot-device-sdk-java-osgi_1.1.0.jar
+bundles.1.symbolic_name=aws-iot-device-sdk-java-osgi
+bundles.1.version=1.1.0
+bundles.2.bundle_path=D\:\\Users\\bruno\\Downloads\\org.eclipse.paho.client.mqttv3-1.1.0.jar
+bundles.2.customizer=false
+bundles.2.headers.count=0
+bundles.2.missing=false
+bundles.2.name=bundles/org.eclipse.paho.client.mqttv3-1.1.0.jar
+bundles.2.symbolic_name=org.eclipse.paho.client.mqttv3
+bundles.2.version=1.1.0
+bundles.count=3
+certificates.count=0
+general.signbundles=false
+headers.other.headers=
+headers.symbolic.name=de.db.i4i.esf.aws.iot.shadow
+headers.version=0.0.1
+resources.count=0
+

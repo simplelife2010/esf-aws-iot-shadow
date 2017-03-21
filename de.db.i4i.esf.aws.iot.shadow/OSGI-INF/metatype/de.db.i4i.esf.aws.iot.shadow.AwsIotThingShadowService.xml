@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MetaData xmlns="http://www.osgi.org/xmlns/metatype/v1.2.0" localization="en_us">
+    <OCD id="de.db.i4i.esf.aws.iot.shadow.AwsIotThingShadowService" 
+         name="AwsIotThingShadowService" 
+         description="The AwsIotThingShadowService provides an access point to AWS IoT thing shadows">
+	
+        <AD id="client.endpoint"
+            name="client.endpoint"
+            type="String"
+            cardinality="0"
+            required="true"
+            default="account-specific-prefix.iot.region.amazonaws.com"
+            description="The client endpoint in the form of &lt;account-specific-prefix&gt;.iot.&lt;region&gt;.amazonaws.com. The account-specific prefix can be found on the AWS IoT console or by using the describe-endpoint command through the AWS command line interface.">
+        </AD>
+        
+        <AD id="client.id"
+            name="client.id"
+            type="String"
+            cardinality="0"
+            required="true"
+            default="client001"
+            description="The client ID uniquely identify a MQTT connection. Two clients with the same client ID are not allowed to be connected concurrently to a same endpoint.">
+        </AD>
+        
+        <AD id="base.retry.delay"
+            name="base.retry.delay"
+            type="Integer"
+            cardinality="0"
+            required="true"
+            default="3000"
+            description="Base retry delay in milliseconds.">
+        </AD>
+        
+        <AD id="connection.timeout"
+            name="connection.timeout"
+            type="Integer"
+            cardinality="0"
+            required="true"
+            default="30000"
+            description="Connection timeout value. This value, measured in seconds, defines the maximum time interval the client will wait for the network connection to the MQTT server to be established. The default timeout is 30 seconds. A value of 0 disables timeout processing meaning the client will wait until the network connection is made successfully or fails.">
+        </AD>
+        
+        <AD id="keep.alive.interval"
+            name="keep.alive.interval"
+            type="Integer"
+            cardinality="0"
+            required="true"
+            default="30000"
+            description="Keep alive interval. This value, measured in milliseconds, defines the maximum time interval between messages sent or received. It enables the client to detect if the server is no longer available, without having to wait for the TCP/IP timeout. The client will ensure that at least one message travels across the network within each keep alive period. In the absence of a data-related message during the time period, the client sends a very small ping message, which the server will acknowledge. A value of 0 disables keepalive processing in the client.">
+        </AD>
+        
+        <AD id="max.connection.retries"
+            name="max.connection.retries"
+            type="Integer"
+            cardinality="0"
+            required="true"
+            default="5"
+            description="Connections will be automatically retried for the configured maximum times when failing to be established or lost. User disconnect, requested via disconnect() will not be retried. By default, it's 5 times. Setting it to 0 will disable the connection retry function.">
+        </AD>
+        
+        <AD id="max.offline.queue.size"
+            name="max.offline.queue.size"
+            type="Integer"
+            cardinality="0"
+            required="true"
+            default="64"
+            description="The offline queues are used for temporarily holding outgoing requests while the connection is being established or retried. When the connection is established, offline queue messages will be sent out as usual. They can be useful for dealing with transient connection failures by allowing the application to continuously send requests while the connection is being established. Each type of request, namely publish, subscribe, and unsubscribe, has their own offline queue. The default offline queue size is 64. Setting it to 0 will disable the offline queues.">
+        </AD>
+        
+        <AD id="max.retry.delay"
+        	name="max.retry.delay"
+        	type="Integer"
+        	cardinality="0"
+        	required="true"
+        	default="30000"
+        	description="For each connection failure, a brief delay has to elapse before the connection is retried. The retry delay is calculated using this simple formula delay = min(baseRetryDelay * pow(2, numRetries), maxRetryDelay). By default, the maximum retry delay is 30,000ms.">
+        </AD>
+             
+                
+        <AD id="num.of.client.threads"
+            name="num.of.client.threads"
+            type="Integer"
+            cardinality="0"
+            required="true"
+            default="1"
+            description="Each client has their own thread pool, which is used to execute user callback functions as well as any timeout callback functions requested. By default, the thread pool is configured with one execution thread.">
+        </AD>
+        
+        <AD id="server.ack.timeout"
+            name="server.ack.timeout"
+            type="Integer"
+            cardinality="0"
+            required="true"
+            default="3000"
+            description="Server acknowledge timeout in milliesconds. This timeout is used internally by the SDK when subscribing to shadow confirmation topics for get, update, and delete requests. It's also used for re-subscribing to user topics when the connection is retried. For most of the APIs provided in the SDK, the user can specify the timeout as an argument. By default, the server acknowledge timeout is 3,000ms.">
+        </AD>
+        
+        <AD id="will.message.payload"
+            name="will.message.payload"
+            type="String"
+            cardinality="0"
+            required="false"
+            default=""
+            description="The Last Will and Testament message with configured payload will be published when the client connection is lost or terminated ungracefully, i.e. not through disconnect().">
+        </AD>
+        
+        <AD id="will.message.topic"
+            name="will.message.topic"
+            type="String"
+            cardinality="0"
+            required="false"
+            default=""
+            description="The MQTT topic for the Last Will and Testament message.">
+        </AD>
+        
+        <AD id="will.message.qos"
+            name="will.message.qos"
+            type="String"
+            cardinality="0"
+            required="true"
+            default="QOS0"
+            description="The MQTT QoS level for the Last Will and Testament message.">
+            <Option label="QoS0" value="QOS0" />
+        	<Option label="QoS1" value="QOS1" />
+        </AD>
+        
+        <AD id="kura.keystore.alias"
+            name="kura.keystore.alias"
+            type="String"
+            cardinality="0"
+            required="true"
+            default="alias"
+            description="The keystore alias to retrieve the client's private key and certificate chain.">
+        </AD>
+    </OCD>
+    
+    <Designate pid="de.db.i4i.esf.aws.iot.shadow.AwsIotThingShadowService">
+        <Object ocdref="de.db.i4i.esf.aws.iot.shadow.AwsIotThingShadowService"/>
+    </Designate>
+</MetaData>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" configuration-policy="require" deactivate="deactivate" enabled="true" immediate="true" modified="updated" name="de.db.i4i.esf.aws.iot.shadow.AwsIotThingShadowService">
+   <implementation class="de.db.i4i.esf.aws.iot.shadow.AwsIotThingShadowServiceImpl"/>
+   <property name="service.pid" type="String" value="de.db.i4i.esf.aws.iot.shadow.AwsIotThingShadowService"/>
+   <reference bind="setSslManagerService" cardinality="1..1" interface="org.eclipse.kura.ssl.SslManagerService" name="SslManagerService" policy="static" unbind="unsetSslManagerService"/>
+   <service>
+      <provide interface="de.db.i4i.esf.aws.iot.shadow.AwsIotThingShadowService"/>
+      <provide interface="org.eclipse.kura.ssl.SslServiceListener"/>
+      <provide interface="org.eclipse.kura.configuration.ConfigurableComponent"/>
+   </service>
+   <reference bind="setCryptoService" cardinality="1..1" interface="org.eclipse.kura.crypto.CryptoService" name="CryptoService" policy="static" unbind="unsetCryptoService"/>
+</scr:component>
